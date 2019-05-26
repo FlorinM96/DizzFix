@@ -1,12 +1,14 @@
+
+<div class="sign-in-header">
+  <img class="logo-sign-in" src="../../../assets/logo.png" alt="">
+</div>
 <div class="displayTable">
+
   <div class="displayTableCell">
-
-
-
     <div class="authBlock">
-      <h3>Sign In</h3>
+      
       <div class="formGroup">
-        <input type="text" class="formControl" placeholder="Username" #userName required>
+        <input type="text" class="formControl" placeholder="Email" #userName required>
       </div>
 
       <div class="formGroup">
@@ -21,13 +23,14 @@
 
 
       <div class="forgotPassword">
-        <span routerLink="/forgot-password">Forgot Password?</span>
+        <span routerLink="/forgot-password">Forgot Password? <span class="redirect"> Reset your password</span></span>
       </div>
-    </div>
-
+      
     <div class="redirectToLogin">
       <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
     </div>
+    </div>
+
 
   </div>
 </div>
