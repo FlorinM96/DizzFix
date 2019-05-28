@@ -13,25 +13,26 @@
         <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
       </div>
       <div class="formGroup">
-        <input type="name" class="formControl" placeholder="Name" #userName required>
+        <input type="name" class="formControl" placeholder="First Name" #FirstName required>
+      </div>
+      <div class="formGroup">
+        <input type="name" class="formControl" placeholder="Last Name" #LastName required>
       </div>
       
 
       <div class="formGroup">
         <input type="password" class="formControl" placeholder="Password" #userPwd required>
       </div>
-      <div class="formGroup">
-        <select class="formControl"  #userDoctor required>
+      <div>
+        <select  class="formControl"  #userDoctor required>
           <option value="" disabled selected>Choose your Doctor</option>
-          <option>Dr. Gregory House</option>
-          <option>Dr. Lisa Cuddy</option>
-          <option>Dr. James Wilson</option>
-          <option>Dr. Eric Foreman</option>
+          <option *ngFor="let doctor of doctors" value="{{doctor.payload.doc.id}}" > {{doctor.payload.doc.data().FirstName}} {{doctor.payload.doc.data().LastName}}</option>
         </select>
       </div>
+      
 
       <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value, userDoctor.value, FirstName.value, LastName.value)">
       </div>
 
       

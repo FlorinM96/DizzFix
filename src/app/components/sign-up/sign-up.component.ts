@@ -8,11 +8,23 @@ import { AuthService } from "../../shared/services/auth.service";
 })
 
 export class SignUpComponent implements OnInit {
+  doctors: Array<any>;
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+
   ) { }
 
-  ngOnInit() { }
-
+  ngOnInit() { 
+    
+  this.getData();
+  }
+  getData(){
+    this.authService.getDoctors()
+    .subscribe(result => {
+      this.doctors = result;
+    })
+  }
+  
+  
 }
