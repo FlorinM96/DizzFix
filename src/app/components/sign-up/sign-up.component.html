@@ -17,6 +17,15 @@
       <div class="formGroup">
         <input type="password" class="formControl" placeholder="Password" #userPwd required>
       </div>
+      <div class="formGroup">
+        <select class="formControl"  #userDoctor required>
+          <option value="" disabled selected>Choose your Doctor</option>
+          <option>Dr. Gregory House</option>
+          <option>Dr. Lisa Cuddy</option>
+          <option>Dr. James Wilson</option>
+          <option>Dr. Eric Foreman</option>
+        </select>
+      </div>
 
       <div class="formGroup">
         <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
