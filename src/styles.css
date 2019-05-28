@@ -1,4 +1,5 @@
 @import 'https://use.fontawesome.com/releases/v5.5.0/css/all.css';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&display=swap');
 
 * {
   -webkit-box-sizing: border-box;
@@ -13,8 +14,9 @@ body {
   font-weight: 400;
   width: 100%;
   height: 100%;
-  font-family: 'Poppins', sans-serif;
-  color: #d1eaf0;
+  font-family: 'Noto Sans', sans-serif;
+  color: #5a5950;
+  background-color: #d1eaf0;
 }
 
 .feather {
@@ -29,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .media-body h1 {
@@ -585,8 +587,43 @@ background-color: white;
 height: 300px;
 }
 
+.basic-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d1eaf0 !important;
+  height: 150px;
+  margin-right: 50px;
+  margin-left: 50px;
+  border-bottom: 2px solid #707070;
+}
+
+.basic-header .logo-sign-in {
+  width: 200px;
+  padding-top: 0;
+  padding-bottom: 0;
+  }
+  
+.round-svg-m{
+  display:none;
+}
+
+.round-svg-d{
+  display:block;
+  margin-top: -2px;
+}
 
 /* Responsive */
+
+@media(max-width:1281px) {
+  .round-svg-m {
+    display:block;
+  }
+  .round-svg-d{
+    display:none;
+  }
+  }
+
 @media(max-width:767px) {
   .sidebar {
     position: static;
