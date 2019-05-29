@@ -56,16 +56,19 @@ export class AuthService {
         this.CreateUser(email,doctor,fname,lname);
       }).catch((error) => {
         window.alert(error.message)
+
       });
       
       
   }
   CreateUser(email, doctor, fname, lname){
+    let doctorRef = this.afs.doc('Physiotherapists/'+ doctor).ref;
     return this.afs.collection('Patients').add({
       FirstName: fname,
       LastName: lname,
       Email: email,
-      PhysiotherapistID:doctor,
+      PhysiotherapistID:doctorRef
+
     });
   }
 
