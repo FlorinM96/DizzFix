@@ -46,16 +46,27 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  SignUp(email, password) {
+  SignUp(email, password, doctor, fname, lname) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
+        this.CreateUser(email,doctor,fname,lname);
       }).catch((error) => {
         window.alert(error.message)
-      })
+      });
+      
+      
+  }
+  CreateUser(email, doctor, fname, lname){
+    return this.afs.collection('Patients').add({
+      FirstName: fname,
+      LastName: lname,
+      Email: email,
+      PhysiotherapistID:doctor,
+    });
   }
 
   // Send email verfificaiton when new user sign up
@@ -81,7 +92,9 @@ export class AuthService {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
-
+  getDoctors(){
+    return this.afs.collection('Physiotherapists').snapshotChanges();
+  }
   // Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
@@ -108,6 +121,7 @@ export class AuthService {
       merge: true
     })
   }
+  
 
   // Sign out 
   SignOut() {
