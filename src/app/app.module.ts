@@ -23,6 +23,8 @@ import { environment } from '../environments/environment';
 
 // Auth service
 import { AuthService } from "./shared/services/auth.service";
+import { MoodScreenComponent } from './components/mood-screen/mood-screen.component';
+import { DizzinessScreenComponent } from './components/dizziness-screen/dizziness-screen.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { AuthService } from "./shared/services/auth.service";
     SignUpComponent,
     DashboardComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    MoodScreenComponent,
+    DizzinessScreenComponent
   ],
   imports: [
     BrowserModule,
