@@ -1,50 +1,78 @@
 
 <!-- Header -->
 <div class="sign-in-header basic-header">
-  <img class="logo-sign-in" src="../../../assets/logo.png" alt="">
+  <img class="logo-sign-in" src="../../../assets/logo.png"  routerLink="/mood-screen" style="cursor:pointer;" alt="">
 </div>
 
 <!-- Navigation -->
-<div class="pt-3 pb-2 mb-3 border-bottom">
-  </div>
+
 <div class="container-fluid">
   <div class="row">
 
     <nav class="col-xl-12 fixed-bottom d-md-block">
         <ul class="nav">
           <li class="nav-item">
+                <a class="nav-link active">
+                  <i class="fas fa-running" routerLink="/exercises"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active">
+                  <i class="fas fa-chart-line" routerLink="/charts"></i>
+                </a>
+              </li>
+          <li class="nav-item">
             <a class="nav-link active">
-              <i class="fas fa-user"></i>
+              <i class="fas fa-user" routerLink="/dashboard"></i>
             </a>
           </li>
-          <!-- Calling SignOut() Api from AuthService -->
+          
           <li class="nav-item">
-            <a class="nav-link" (click)="authService.SignOut()">
-              <i class="fas fa-sign-out-alt"></i>
+            <a class="nav-link active">
+              <i class="fas fa-cog" routerLink="/settings"></i>
             </a>
           </li>
         </ul>
     </nav>
 
     <!-- Main content -->
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <main role="main" class="col-md-12 ml-sm-auto col-lg-12">
       <div class="inner-adjust">
         <!-- Show user data when logged in -->
-        <div class="row" *ngIf="authService.userData as user">
-          <div class="col-md-12">
-            <div class="media">
-
-              <div class="media-body">
-                <h1>Hello: <strong>{{(user.email)}}</strong></h1>
-                <p>User ID: <strong>{{user.uid}}</strong></p>
-                <p>Email: <strong>{{user.email}}</strong></p>
-              </div>
-            </div>
-          </div>
+        <div class="row">
+            <div class="displayTable">
+                <div class="displayTableCell">
+          <div class="row align-items-center">
+                <img src="../../../assets/dummy-user.png" style="border-radius: 50%;" alt="">
+                
+                
+                <div class="formGroup">
+                    <input type="name" class="formControl" placeholder="name">
+                </div>
+                <div class="formGroup">
+                    <input type="name" class="formControl" placeholder="email">
+                </div>
+                <div class="formGroup">
+                    <input type="button" class="btn btnPrimary" value="Change password" >
+                </div>
         </div>
+        <h1>Disease info:</h1><br>
+        <div style="background-color: white; border-radius: 3px; height: 50px;"><strong>{{(Object)}}</strong></div>
+        </div>
+      </div>
+         
+    </div>
 
       </div>
     </main>
-
+ <!-- Calling SignOut() Api from AuthService -->
+ <ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link" (click)="authService.SignOut()">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
+
