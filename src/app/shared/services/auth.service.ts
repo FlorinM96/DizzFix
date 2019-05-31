@@ -53,7 +53,7 @@ export class AuthService {
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
-        this.CreateUser(email,doctor,fname,lname);
+        this.CreateUser(result.user,email,doctor,fname,lname);
       }).catch((error) => {
         window.alert(error.message)
 
@@ -61,9 +61,9 @@ export class AuthService {
       
       
   }
-  CreateUser(email, doctor, fname, lname){
+  CreateUser(user, email, doctor, fname, lname){
     let doctorRef = this.afs.doc('Physiotherapists/'+ doctor).ref;
-    return this.afs.collection('Patients').add({
+    return this.afs.collection('Patients').doc(user.uid).set({
       FirstName: fname,
       LastName: lname,
       Email: email,
