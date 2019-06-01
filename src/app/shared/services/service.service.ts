@@ -4,6 +4,7 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument, DocumentReference } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
+import * as firebase from 'firebase';
 @Injectable({
   providedIn: 'root'
 })
@@ -30,8 +31,10 @@ export class ServiceService {
       let feedbackid = localStorage.getItem('DailyFeedbackID');
       return this.db.collection('Patients').doc(userdata.uid).collection('DailyFeedback').doc(feedbackid).update({
         Dizziness: parseInt(diznum),
+        TimeStamp: firebase.database.ServerValue.TIMESTAMP
     } )
-    .then((result) => {this.router.navigate(['dashboard']);}).catch((error) => {
+    .then((result) => {
+      this.router.navigate(['dashboard']);}).catch((error) => {
       window.alert(error.message)
     })
 
