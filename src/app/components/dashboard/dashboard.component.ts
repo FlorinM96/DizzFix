@@ -11,6 +11,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class DashboardComponent implements OnInit {
 
+  private info: any = [];
+
   constructor(
     public authService: AuthService,
     public router: Router,
@@ -20,7 +22,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     let userdata = JSON.parse(localStorage.getItem('user'));
-    this.db.collection('Patients').doc(userdata.uid).valueChanges().subscribe(info => console.log(info));
+    this.db.collection('Patients').doc(userdata.uid).valueChanges().subscribe(data =>{
+      this.info.push(data);
+      console.log(this.info)});
    }
 
 }

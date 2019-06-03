@@ -53,11 +53,16 @@
                     <input type="name" class="formControl" placeholder="email">
                 </div>
                 <div class="formGroup">
-                    <input type="button" class="btn btnPrimary" value="Change password" >
+                    <input type="button" class="btn btnPrimary" (click)="authService.SignOut()" routerLink="/forgot-password" value="Change password" >
                 </div>
         </div>
         <h1>Disease info:</h1><br>
-        <div style="background-color: white; border-radius: 3px; height: 50px;"><strong>{{(Object)}}</strong></div>
+            <div *ngFor="let info of info">
+               <span>{{info.FirstName}}</span><br>
+               <span>{{info.LastName}}</span><br>
+               <span>{{info.DiseaseInfo}}</span><br>
+           
+        </div>
         </div>
       </div>
          
