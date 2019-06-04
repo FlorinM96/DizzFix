@@ -1,14 +1,13 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from "../services/user";
-import { auth } from 'firebase/app';
-import { AngularFireAuth } from "@angular/fire/auth";
-import { AngularFirestore, AngularFirestoreDocument, DocumentReference } from '@angular/fire/firestore';
+import { Feed,ExerciseIDs, Exercises } from "../services/Feed";
+import { AngularFirestore, AngularFirestoreDocument, DocumentReference, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 import * as firebase from 'firebase';
 import { getLocaleDateTimeFormat } from '@angular/common';
-import { Services } from '@angular/core/src/view';
-import {mergeMap} from 'rxjs/operators';
+import {mergeMap, flatMap} from 'rxjs/operators';
 import {map} from 'rxjs/operators';
+import { Observable,combineLatest  } from 'rxjs';
+import { ExercisesComponent } from 'src/app/components/exercises/exercises.component';
 
 
 
@@ -16,11 +15,23 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ServiceService {
-  exercises:any; 
+  feedCollection : AngularFirestoreCollection<ExerciseIDs>;
+  feedItem : Observable<Feed[]>;
+
 
   constructor(
     public db: AngularFirestore,    
     public router: Router,  ) {}
+
+
+    EditUserInfo(Fname, Lname){
+  let userdata = JSON.parse(localStorage.getItem('user'))
+
+  return this.db.collection('Patients').doc(userdata.uid).update({
+  FirstName: Fname,
+  LastName:Lname
+})
+    }
 
     insertMoodScale(moodnum)
     {
@@ -37,24 +48,18 @@ export class ServiceService {
     }
     GetExercises(){
       let userdata = JSON.parse(localStorage.getItem('user'));
-
-      return this.db.collection('PatientExercises').doc(userdata.uid).collection('ExerciseIDs')
-      .snapshotChanges()
-      .pipe(
-        map(snap => {
-        return {id:snap.payload.doc.id,
-           ...snap.payload.doc.data()}
-        }),mergeMap(pex=>{
-          
-            return this.db.doc('Exercises/'+pex.id).valueChanges()
-            .pipe(
-              map(exercise => {
-                return {...exercise}
-              })
-            )
-        })
-      )
-
+      this.feedCollection = this.db.collection('PatientExercises').doc(userdata.uid).collection('ExerciseIDs');
+      this.feedItem =this.feedCollection.snapshotChanges().pipe(map(changes => {
+        return changes.map( change => {
+          const data = change.payload.doc.data();
+          const ExID = data.ExerciseID;
+            return this.db.doc('Exercises/' +ExID).valueChanges().pipe(map( (ExercisesData: Exercises) => {
+              return Object.assign(
+                {Name: ExercisesData.Name, Description: ExercisesData.Description}); }
+            ));
+        });
+      }), flatMap(feeds => combineLatest(feeds)));
+    
     //       return this.db.doc('Exercises/' +id).valueChanges()
     //       .map(data2 => Object.assign({}, {id, ...data, ...data2}));
     //     });

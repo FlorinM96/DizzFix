@@ -44,16 +44,19 @@
         <div class="row">
             <div class="displayTable">
                 <div class="displayTableCell">
-          <div class="row align-items-center">
+          <div *ngFor="let info of info" class="row align-items-center" >
                 <img src="../../../assets/dummy-user.png" style="border-radius: 50%;" alt="">
                 
                 
                 <div class="formGroup">
-                    <input type="name" class="formControl" placeholder="name">
+                    <input type="name" class="formControl" value="{{info.FirstName}}"#userFname required>
                 </div>
                 <div class="formGroup">
-                    <input type="name" class="formControl" placeholder="email">
+                    <input type="name" class="formControl" value="{{info.LastName}}"#userLname required>
                 </div>
+                <div class="formGroup">
+                    <input type="button" class="btn btnPrimary" value="Update Info" (click)="service.EditUserInfo(userFname.value, userLname.value)">
+                  </div>
                 <div class="formGroup">
                     <input type="button" class="btn btnPrimary" (click)="authService.SignOut()" routerLink="/forgot-password" value="Change password" >
                 </div>
