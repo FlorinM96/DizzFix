@@ -25,6 +25,7 @@ import { environment } from '../environments/environment';
 import { AuthService } from "./shared/services/auth.service";
 import { MoodScreenComponent } from './components/mood-screen/mood-screen.component';
 import { DizzinessScreenComponent } from './components/dizziness-screen/dizziness-screen.component';
+import { ExercisesComponent } from './components/exercises/exercises.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { DizzinessScreenComponent } from './components/dizziness-screen/dizzines
     ForgotPasswordComponent,
     VerifyEmailComponent,
     MoodScreenComponent,
-    DizzinessScreenComponent
+    DizzinessScreenComponent,
+    ExercisesComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,8 @@ import { SignUpComponent } from '../../components/sign-up/sign-up.component';
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { MoodScreenComponent } from '../../components/mood-screen/mood-screen.component';
 import { DizzinessScreenComponent } from '../../components/dizziness-screen/dizziness-screen.component';
+import { ExercisesComponent } from '../../components/exercises/exercises.component';
+
 import { ForgotPasswordComponent } from '../../components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from '../../components/verify-email/verify-email.component';
 
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'mood-screen', component: MoodScreenComponent, canActivate: [AuthGuard] },
   { path: 'dizziness-screen', component: DizzinessScreenComponent, canActivate: [AuthGuard] },
+  { path: 'exercises', component: ExercisesComponent, canActivate: [AuthGuard] },
+
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
 ];

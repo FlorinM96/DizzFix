@@ -1,0 +1,68 @@
+<div class="sign-in-header">
+    <img class="logo-sign-in" routerLink="/mood-screen" style="cursor:pointer;" src="../../../assets/logo.png" alt="">
+  </div>
+
+  <!-- Navigation -->
+
+<div class="container-fluid">
+<div class="row">
+
+  <nav class="col-xl-12 fixed-bottom d-md-block">
+      <ul class="nav">
+            <li class="nav-item">
+                    <a class="nav-link active">
+                          <i class="fas fa-running" routerLink="/exercises"></i>
+                    </a>
+              </li>
+              <li class="nav-item">
+                    <a class="nav-link active">
+                          <i class="fas fa-chart-line" routerLink="/charts"></i>
+                    </a>
+              </li>
+              <li class="nav-item">
+                    <a class="nav-link active">
+                          <i class="fas fa-user" routerLink="/dashboard"></i>
+                    </a>
+              </li>
+              
+              <li class="nav-item">
+                    <a class="nav-link active">
+                          <i class="fas fa-cog" routerLink="/settings"></i>
+                    </a>
+              </li>
+      </ul>
+  </nav>
+      <div class="round-svg-m">
+      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1537 265.5"><defs><style>.cls-1{fill:#fff;stroke:#fff;stroke-miterlimit:10;}</style></defs><title>round</title><path class="cls-1" d="M1536.5,3.5c0,146.36-343.85,265-768,265S.5,149.86.5,3.5" transform="translate(0 -3.5)"/></svg>
+      </div>
+      
+      <div class="round-svg-d">
+      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536.76 40.5"><defs><style>.cls-1{fill:#fff;stroke:#fff;stroke-miterlimit:10;}</style></defs><title>Untitled-4</title><path class="cls-1" d="M1536.5.5C1349,25.13,1059.76,40,757,40,457,40,187.15,24.79-.13.55" transform="translate(0.2 0)"/></svg>
+      </div>
+  
+      <div *ngFor="let exercise of exercises" >
+                  {{exercise.Name}} {{exercise.Description}}
+                  
+                               </div>
+      <a class="icons" (click)="service.insertMoodScale(1)">
+      <i class='far fa-sad-tear' style='font-size:48px;color:rgb(0, 0, 0)'></i>
+      </a>
+
+      <a class="icons" (click)="service.insertMoodScale('2')">
+          <i class='far fa-meh' style='font-size:48px;color:darkblue'></i>
+      </a>
+
+      <a class="icons" (click)="service.insertMoodScale('3')">
+          <i class='far fa-smile' style='font-size:48px;color:cornflowerblue'></i>
+      </a>
+
+      <a class="icons" (click)="service.insertMoodScale('4')">
+          <i class='far fa-smile-beam' style='font-size:48px;color:white'></i>
+      </a>
+      <a class="icons" (click)="service.checkifexisdone()">
+          <i class='far fa-smile-beam' style='font-size:48px;color:red'></i>
+      </a>
+      <a class="icons" (click)="service.GetExercises()">
+                  <i class='far fa-smile-beam' style='font-size:48px;color:yellow'></i>
+              </a>
+
