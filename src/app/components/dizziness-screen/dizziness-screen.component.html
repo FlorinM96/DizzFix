@@ -1,7 +1,9 @@
 <div class="sign-in-header">
     <img class="logo-sign-in" src="../../../assets/logo.png" routerLink="/mood-screen" style="cursor:pointer;" alt="">
   </div>
-  
+  <div *ngFor="let info of info" style="background-color: white; margin-bottom: -10px;">
+            <h1>Hello, {{info.FirstName}}.</h1>
+</div> 
   <!-- Navigation -->
 
 <div class="container-fluid">
