@@ -12,7 +12,7 @@ import { ServiceService } from 'src/app/shared/services/service.service';
 })
 export class DashboardComponent implements OnInit {
 
-  private info: any = [];
+  public info: any = [];
 
   constructor(
     public service: ServiceService,
