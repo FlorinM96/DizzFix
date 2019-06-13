@@ -26,6 +26,7 @@ import { AuthService } from "./shared/services/auth.service";
 import { MoodScreenComponent } from './components/mood-screen/mood-screen.component';
 import { DizzinessScreenComponent } from './components/dizziness-screen/dizziness-screen.component';
 import { ExercisesComponent } from './components/exercises/exercises.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ExercisesComponent } from './components/exercises/exercises.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
