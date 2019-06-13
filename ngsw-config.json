@@ -9,6 +9,7 @@
         "files": [
           "/favicon.ico",
           "/index.html",
+          "/*.html",
           "/*.css",
           "/*.js"
         ]
@@ -24,5 +25,20 @@
         ]
       }
     }
+  ],
+  "dataGroups": [{
+    "name": "data-cache",
+    "urls": [
+      "/dashboard", "/exercises"
+    ],
+    "cacheConfig": {
+      "maxSize": 100,
+      "maxAge": "1h",
+      "timeout": "10s",
+      "strategy": "performance"
+    }
+  }
+    
   ]
+  
 }
