@@ -612,6 +612,7 @@ padding-bottom: 25px;
   border-bottom: 2px solid #707070;
 }
 
+
 .basic-header .logo-sign-in {
   width: 200px;
   padding-top: 0;
@@ -679,8 +680,15 @@ padding-bottom: 25px;
   height: 1px;
   background-color: gray;
   width: 85%;
-  z-index: 55px;
   margin-top: -25px;
+}
+
+.line-dizzy {
+  margin-top: 50px;
+  margin-bottom: -45px;
+  height: 3px;
+  background-color: #5a5950;
+  width: 65%;
 }
 
 .mood-bar i {
@@ -693,6 +701,11 @@ padding-bottom: 25px;
 
 .thumb-dwn {
   margin-right: 55%;
+}
+
+
+.mood-message {
+  margin-top: 35px;
 }
 /* Responsive */
 
@@ -820,6 +833,16 @@ padding-bottom: 25px;
   }
 }
 
+@media(max-width:414px) {
+  .line-dizzy {
+    margin-top: 50px;
+    margin-bottom: -48px;
+    height: 3px;
+    background-color: #5a5950;
+    width: 65%;
+  }
+  }
+
 @media(max-width:375px) {
   .nav-link {
     padding: 1rem 1rem;
@@ -840,7 +863,7 @@ padding-bottom: 25px;
   }
 
   .dizzy-bar .icon {
-    padding: 1rem;
+    padding: 1.75rem;
     font-size: 38px;
     padding-top: 0;
   }
@@ -850,7 +873,15 @@ padding-bottom: 25px;
   }
 
   .thumb-dwn {
-    margin-right: 35%;
+    margin-right: 49%;
+  }
+
+  .line-dizzy {
+    margin-top: 50px;
+    margin-bottom: -35px;
+    height: 3px;
+    background-color: #5a5950;
+    width: 65%;
   }
 
   .icons{
@@ -858,4 +889,25 @@ padding-bottom: 25px;
     padding: 1rem !important;
 
 }
+.second-message {
+  margin-top: 50px;
+}
+
+.mood-message {
+  margin-top: 25px;
+}
+
+
   }
+
+  @media(max-width:360px) {
+    .line-dizzy {
+      margin-top: 50px;
+      margin-bottom: -35px;
+      height: 3px;
+      background-color: #5a5950;
+      width: 65%;
+    }
+    }
+
+
