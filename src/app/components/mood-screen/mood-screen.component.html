@@ -1,18 +1,21 @@
-<div class="sign-in-header">
-    <img class="logo-sign-in" routerLink="/mood-screen" style="cursor:pointer;" src="../../../assets/logo.png" alt="">
+<div class="sign-in-header sign-in-log">
+    <img class="logo-sign-in logo-sign-in-log" routerLink="/mood-screen" style="cursor:pointer;" src="../../../assets/logo.png" alt="">
   </div>
-  <div *ngFor="let info of info" style="background-color: white; margin-bottom: -10px;">
-            <h1>Hello, {{info.FirstName}}.</h1>
+  <div class="centered-el"><div class="divider"></div></div>
+  <div *ngFor="let info of info" style="background-color: white; margin-bottom: -10px;" class="centered-el">
+            <h4>Hello, {{info.FirstName}}.</h4>
 </div> 
 
   <!-- Navigation -->
 
-<div class="container-fluid">
-<div class="row">
-  <nav class="col-xl-12 fixed-bottom d-md-block">
-           
-     
+
+  <div class="container-fluid">
+            
+  <nav class="col-xl-12 fixed-bottom d-md-block centered-el">
+         
+         
       <ul class="nav">
+                
             <li class="nav-item">
                     <a class="nav-link active">
                           <i class="fas fa-running" routerLink="/exercises"></i>
@@ -46,27 +49,30 @@
       </div>
   
          
-      <div>
-            <h3>How do you feel today?</h3>
+      <div class="centered-el first-message">
+            <h5>How do you feel today?</h5>
       </div>
 
+      <div class="centered-el mood-bar">
       <a class="icons" (click)="service.insertMoodScale(1)">
-      <i class='far fa-sad-tear' style='font-size:48px;color:rgb(0, 0, 0)'></i>
+      <i class='far fa-sad-tear' style='color:rgb(0, 0, 0)'></i>
       </a>
 
       <a class="icons" (click)="service.insertMoodScale('2')">
-          <i class='far fa-meh' style='font-size:48px;color:darkblue'></i>
+          <i class='far fa-meh' style='color:darkblue'></i>
       </a>
 
       <a class="icons" (click)="service.insertMoodScale('3')">
-          <i class='far fa-smile' style='font-size:48px;color:cornflowerblue'></i>
+          <i class='far fa-smile' style='color:cornflowerblue'></i>
       </a>
 
       <a class="icons" (click)="service.insertMoodScale('4')">
-          <i class='far fa-smile-beam' style='font-size:48px;color:white'></i>
+          <i class='far fa-smile-beam' style='color:white'></i>
       </a>
+</div>
 
-      <div>
-            <h3>Let us know how do you feel.</h3>
+      <div class="centered-el second-message">
+            <h5 style="text-align: center;">Let us know how <br>do you feel.</h5>
       </div>
+
 

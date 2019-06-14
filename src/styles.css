@@ -587,6 +587,20 @@ background-color: white;
 height: 300px;
 }
 
+.sign-in-log {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 150px !important;
+}
+
+.logo-sign-in-log {
+  width: 150px;
+padding-top: 25px;
+padding-bottom: 25px;
+}
+
 .basic-header {
   display: flex;
   align-items: center;
@@ -615,9 +629,11 @@ height: 300px;
 
 .nav {
   background-color: #d1eaf0 !important;
+  border-top: 1px solid gray;
+  padding-top: 20px;
 }
 .nav-link {
-  padding: 1rem 1rem;
+  padding: 1.4rem 1.6rem;
   border-bottom: 1px solid #dde0e2;
   cursor: pointer;
   border-radius: 50%;
@@ -626,12 +642,58 @@ height: 300px;
   margin-bottom: 25px;
 }
 
+.nav-link i {
+  font-size: 30px;
+}
+
 .sidebar .nav-link.active, .sidebar a:hover, a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 
   color: #33B6F8;
 
 }
 
+.centered-el {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.first-message {
+  margin-top: 50px;
+}
+
+.second-message {
+  margin-top: 50px;
+}
+
+.container-fluid {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.mood-bar a i {
+  width: 30px !important;
+}
+
+.divider {
+  height: 1px;
+  background-color: gray;
+  width: 85%;
+  z-index: 55px;
+  margin-top: -25px;
+}
+
+.mood-bar i {
+  font-size: 48px;
+}
+
+.dizzy-bar .icon {
+  padding: 2rem;
+}
+
+.thumb-dwn {
+  margin-right: 55%;
+}
 /* Responsive */
 
 @media(max-width:1281px) {
@@ -757,3 +819,43 @@ height: 300px;
     display: none;
   }
 }
+
+@media(max-width:375px) {
+  .nav-link {
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dde0e2;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: white;
+    margin: 5px;
+    margin-bottom: 25px;
+  }
+  
+  .nav-link i {
+    font-size: 20px;
+  }
+
+  .mood-bar i {
+    font-size: 38px;
+  }
+
+  .dizzy-bar .icon {
+    padding: 1rem;
+    font-size: 38px;
+    padding-top: 0;
+  }
+
+  .first-message {
+    margin-top: 50px;
+  }
+
+  .thumb-dwn {
+    margin-right: 35%;
+  }
+
+  .icons{
+
+    padding: 1rem !important;
+
+}
+  }

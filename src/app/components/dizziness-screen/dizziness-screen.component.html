@@ -1,15 +1,16 @@
-<div class="sign-in-header">
-    <img class="logo-sign-in" src="../../../assets/logo.png" routerLink="/mood-screen" style="cursor:pointer;" alt="">
-  </div>
-  <div *ngFor="let info of info" style="background-color: white; margin-bottom: -10px;">
-            <h1>Hello, {{info.FirstName}}.</h1>
-</div> 
+<div class="sign-in-header sign-in-log">
+            <img class="logo-sign-in logo-sign-in-log" routerLink="/mood-screen" style="cursor:pointer;" src="../../../assets/logo.png" alt="">
+          </div>
+          <div class="centered-el"><div class="divider"></div></div>
+          <div *ngFor="let info of info" style="background-color: white; margin-bottom: -10px;" class="centered-el">
+                    <h4>Hello, {{info.FirstName}}.</h4>
+        </div> 
   <!-- Navigation -->
 
 <div class="container-fluid">
-<div class="row">
 
-  <nav class="col-xl-12 fixed-bottom d-md-block">
+
+<nav class="col-xl-12 fixed-bottom d-md-block centered-el">
       <ul class="nav">
                   <li class="nav-item">
                         <a class="nav-link active">
@@ -42,29 +43,39 @@
       <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536.76 40.5"><defs><style>.cls-1{fill:#fff;stroke:#fff;stroke-miterlimit:10;}</style></defs><title>Untitled-4</title><path class="cls-1" d="M1536.5.5C1349,25.13,1059.76,40,757,40,457,40,187.15,24.79-.13.55" transform="translate(0.2 0)"/></svg>
       </div>
    
-      <div>
-            <h3>Feeling dizzy? <br> Let us know how bad it is.</h3>
+      <div class="centered-el first-message">
+            <h5 style="text-align: center;">Feeling dizzy? <br> Let us know how bad it is.</h5>
       </div>
-
-      <img style="width: 50px;  height: 50px;" src="../../../assets/thumb-down.png" alt="">
       
-      <a class="icons" (click)="service.insertDizzinessScale(1)">
+            
+      <div class="centered-el dizzy-bar">
+     
+      
+      <a class="icon" (click)="service.insertDizzinessScale(1)">
       <i class='fas fa-circle' style='font-size:28px;color:#5a5950'></i>
       </a>
 
-      <a class="icons" (click)="service.insertDizzinessScale(2)">
+      <a class="icon" (click)="service.insertDizzinessScale(2)">
             <i class='fas fa-circle' style='font-size:28px;color:#5a5950'></i>
       </a>
 
-      <a class="icons" (click)="service.insertDizzinessScale(3)">
+      <a class="icon" (click)="service.insertDizzinessScale(3)">
             <i class='fas fa-circle' style='font-size:28px;color:#5a5950'></i>
       </a>
 
-      <a class="icons" (click)="service.insertDizzinessScale(4)">
+      <a class="icon" (click)="service.insertDizzinessScale(4)">
             <i class='fas fa-circle' style='font-size:28px;color:#5a5950'></i>
       </a>
 
-      <img style="width: 50px; height: 50px;"src="../../../assets/like.png" alt="">
-      <div>
-            <h3>Let us know how do you feel.</h3>
+     
       </div>
+
+      <div class="row centered-el">
+       <img class="thumb-dwn" style="width: 40px; float:left; height: 40px;" src="../../../assets/thumb-down.png" alt="">
+       <img style="width: 40px; float: right; height: 40px;"src="../../../assets/like.png" alt="">
+      </div>
+      
+      <div class="centered-el second-message">
+            <h5 style="text-align: center;">Let us know how<br> do you feel.</h5>
+      </div>
+         
