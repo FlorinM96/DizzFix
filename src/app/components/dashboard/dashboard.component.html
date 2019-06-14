@@ -6,10 +6,10 @@
 
 <!-- Navigation -->
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid container-expanded">
 
-    <nav class="col-xl-12 fixed-bottom d-md-block">
+
+    <nav class="col-xl-12 fixed-bottom d-md-block centered-el">
         <ul class="nav">
           <li class="nav-item">
                 <a class="nav-link active">
@@ -34,9 +34,7 @@
           </li>
         </ul>
     </nav>
-    <a class="nav-link" (click)="authService.SignOut()">
-        <i class="fas fa-sign-out-alt"></i>
-      </a>
+  
     <!-- Main content -->
     <main role="main" class="col-md-12 ml-sm-auto col-lg-12">
       <div class="inner-adjust">
@@ -44,30 +42,34 @@
         <div class="row">
             <div class="displayTable">
                 <div class="displayTableCell">
-          <div *ngFor="let info of info" class="row align-items-center" >
-                <img src="../../../assets/dummy-user.png" style="border-radius: 50%;" alt="">
+          <div *ngFor="let info of info">
+            <div class="centered-el">
+              <img src="../../../assets/dummy-user.png" style="border-radius: 50%; width: 25%; margin-bottom: 25px;" alt="">
+
+            </div>    
                 
-                
-                <div class="formGroup">
-                    <input type="name" class="formControl" value="{{info.FirstName}}"#userFname required>
+        
+                <div class="formGroup centered-el">
+                    <input type="name" class="formControl formControl-u" value="{{info.FirstName}}"#userFname required>
                 </div>
-                <div class="formGroup">
-                    <input type="name" class="formControl" value="{{info.LastName}}"#userLname required>
+                <div class="formGroup centered-el">
+                    <input type="name" class="formControl formControl-u" value="{{info.LastName}}"#userLname required>
                 </div>
-                <div class="formGroup">
-                    <input type="button" class="btn btnPrimary" value="Update Info" (click)="service.EditUserInfo(userFname.value, userLname.value)">
+                <div class="formGroup centered-el">
+                    <input type="button" class="btn btnPrimary formControl-u btn-u" value="Update Info" (click)="service.EditUserInfo(userFname.value, userLname.value)">
                   </div>
-                <div class="formGroup">
-                    <input type="button" class="btn btnPrimary" (click)="authService.SignOut()" routerLink="/forgot-password" value="Change password" >
+                <div class="formGroup centered-el">
+                    <input type="button" class="btn btnPrimary formControl-u btn-u" (click)="authService.SignOut()" routerLink="/forgot-password" value="Change password" >
                 </div>
         </div>
-        <h1>Disease info:</h1><br>
-            <div *ngFor="let info of info">
-               <span>{{info.FirstName}}</span><br>
-               <span>{{info.LastName}}</span><br>
-               <span>{{info.DiseaseInfo}}</span><br>
+      
+       
+        <h5 style="margin-left: 13%;">Disease info:</h5>
+
+            <div *ngFor="let info of info" class="centered-el">
+               <div class="info-box"><span>{{info.DiseaseInfo}}</span></div> 
            
-        </div>
+          </div>
         </div>
       </div>
          
@@ -75,14 +77,6 @@
 
       </div>
     </main>
- <!-- Calling SignOut() Api from AuthService -->
- <ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link" (click)="authService.SignOut()">
-          <i class="fas fa-sign-out-alt"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
+ 
 </div>
 

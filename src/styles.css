@@ -609,12 +609,12 @@ padding-bottom: 25px;
   height: 150px;
   margin-right: 50px;
   margin-left: 50px;
-  border-bottom: 2px solid #707070;
+  border-bottom: 1px solid #707070;
 }
 
 
 .basic-header .logo-sign-in {
-  width: 200px;
+  width: 150px;
   padding-top: 0;
   padding-bottom: 0;
   }
@@ -706,6 +706,24 @@ padding-bottom: 25px;
 
 .mood-message {
   margin-top: 35px;
+}
+
+.formControl-u {
+    width: 75% !important;
+}
+
+.btn-u {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.info-box {
+  padding: 70px;
+background-color: white;
+border-radius: 25px;
+}
+.container-expanded {
+  height: 850px;
 }
 /* Responsive */
 
@@ -852,6 +870,11 @@ padding-bottom: 25px;
     background-color: white;
     margin: 5px;
     margin-bottom: 25px;
+  }
+
+  .nav {
+    padding-right: 25px;
+padding-left: 25px;
   }
   
   .nav-link i {
