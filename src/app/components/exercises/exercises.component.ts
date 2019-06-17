@@ -45,7 +45,6 @@ exercises:any;
       this.getEXERCISES();
       return this.feedItem.forEach(value => {
 this.exercises=value;
-        console.log(value)
       })
     }
   

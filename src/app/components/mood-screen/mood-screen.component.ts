@@ -13,6 +13,7 @@ export class MoodScreenComponent implements OnInit {
   public info: any = [];
   constructor(    
     public authService: AuthService,
+
     public router: Router,
     public service:ServiceService,
     public db: AngularFirestore){}
@@ -21,7 +22,7 @@ export class MoodScreenComponent implements OnInit {
     let userdata = JSON.parse(localStorage.getItem('user'));
     this.db.collection('Patients').doc(userdata.uid).valueChanges().subscribe(data =>{
       this.info.push(data);
-      console.log(this.info)});
+  });
   }
 
 }

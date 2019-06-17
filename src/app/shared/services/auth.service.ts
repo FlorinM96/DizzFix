@@ -36,15 +36,32 @@ export class AuthService {
   SignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['mood-screen']);
-        });
         this.SetUserData(result.user);
+        this.checkifmoodisdone();
       }).catch((error) => {
         window.alert(error.message)
       })
   }
+  checkifmoodisdone(){
+    let userdata = JSON.parse(localStorage.getItem('user'));
+    let DateObj = new Date();
+    let date = ('0' + DateObj.getDate()).slice(-2) + '-' + ('0' + (DateObj.getMonth() + 1)).slice(-2) + '-' + DateObj.getFullYear() 
+    let MoodREF = this.afs.collection('Patients').doc(userdata.uid).collection('DailyFeedback').doc(date);
+    MoodREF.get()
+    .subscribe(snap =>{
+      if (snap.exists)
+    {            this.router.navigate(['dashboard'])
+    console.log('DailyFeedback exists already. Redirecting to dashboard');
+  }
+  else{
+    this.ngZone.run(() => {
+      this.router.navigate(['mood-screen']);
+    });
+  }
+    })
 
+    
+    }
   // Sign up with email/password
   SignUp(email, password, doctor, fname, lname) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)

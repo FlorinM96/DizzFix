@@ -13,3 +13,9 @@ export interface Feed {
     ExerciseID?: string;
 
  }
+ export interface DailyFeedback {
+   Mood?: number;
+   Dizziness? : number;
+   TimeStamp? : string;
+
+}

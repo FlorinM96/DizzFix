@@ -1,28 +1,50 @@
 import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import * as Plotly from 'plotly.js';
+import { DailyFeedback} from 'src/app/shared/services/Feed';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-patient-overview',
   templateUrl: './patient-overview.component.html',
   styleUrls: ['./patient-overview.component.css']
 })
 export class PatientOverviewComponent implements OnInit {
-  constructor() { }
+  constructor( 
+     public db: AngularFirestore,   
+    ) { }
   @ViewChild('chart',{ read: ElementRef, static: false }) el: ElementRef;
-
+  public x = [];
+  public y= [];
+  
+  feedCollection : AngularFirestoreCollection<DailyFeedback>;
   ngOnInit() {
+
   }
   ngAfterViewInit() {
-      this.basicChart();
+    this.getEXERCISES();
   }
+  getEXERCISES(){
+    let userdata = JSON.parse(localStorage.getItem('user'));
+    this.feedCollection = this.db.collection('Patients').doc(userdata.uid).collection('DailyFeedback');
+    this.feedCollection.snapshotChanges().subscribe(result => {
+      return result.map( change => {
 
-basicChart(){
-  const element = this.el.nativeElement;
-  const data = [{
-    x: ['10.11.1996', '11.11.1996', '12.11.1996', '13.11.1996', '14.11.1996', '15.11.1996', '16.11.1996', '17.11.1996', '18.11.1996', '19.11.1996', '20.11.1996'],
-    y:[5,1,5,3,4,5,4,3,2,4,5]
-  }];
-  const style = {margin: {t:0}};
-  Plotly.plot(element, data, style);
+        // this.x = change.payload.doc.data().TimeStamp;
+        // this.y=change.payload.doc.data().Mood;
+        this.x.push(change.payload.doc.data().TimeStamp);
+        this.y.push(change.payload.doc.data().Mood);
+      const element = this.el.nativeElement;
+      const data = [{
+        x:this.x,
+        y:this.y
+      }]
+      Plotly.plot(element, data);
 
-}
+
+      })
+      }) 
+
+    }
+    
+    
+
 }
