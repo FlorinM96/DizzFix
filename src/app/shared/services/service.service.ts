@@ -1,13 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
-import { Feed,ExerciseIDs, Exercises } from "../services/Feed";
-import { AngularFirestore, AngularFirestoreDocument, DocumentReference, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentReference} from '@angular/fire/firestore';
 import { Router } from "@angular/router";
-import * as firebase from 'firebase';
-import { getLocaleDateTimeFormat } from '@angular/common';
-import {mergeMap, flatMap} from 'rxjs/operators';
-import {map} from 'rxjs/operators';
-import { Observable,combineLatest  } from 'rxjs';
-import { ExercisesComponent } from 'src/app/components/exercises/exercises.component';
+
 
 
 
@@ -15,9 +9,6 @@ import { ExercisesComponent } from 'src/app/components/exercises/exercises.compo
   providedIn: 'root'
 })
 export class ServiceService {
-  feedCollection : AngularFirestoreCollection<ExerciseIDs>;
-  feedItem : Observable<Feed[]>;
-
 
   constructor(
     public db: AngularFirestore,    
@@ -46,26 +37,20 @@ export class ServiceService {
     });
 
     }
-    GetExercises(){
+    insertDizzinessScale(diznum){
       let userdata = JSON.parse(localStorage.getItem('user'));
-      this.feedCollection = this.db.collection('PatientExercises').doc(userdata.uid).collection('ExerciseIDs');
-      this.feedItem =this.feedCollection.snapshotChanges().pipe(map(changes => {
-        return changes.map( change => {
-          const data = change.payload.doc.data();
-          const ExID = data.ExerciseID;
-            return this.db.doc('Exercises/' +ExID).valueChanges().pipe(map( (ExercisesData: Exercises) => {
-              return Object.assign(
-                {Name: ExercisesData.Name, Description: ExercisesData.Description}); }
-            ));
-        });
-      }), flatMap(feeds => combineLatest(feeds)));
-    
-    //       return this.db.doc('Exercises/' +id).valueChanges()
-    //       .map(data2 => Object.assign({}, {id, ...data, ...data2}));
-    //     });
-    //   }).flatMap(observables => this.joined =Observable.combineLatest(observables));
-    // })
+      let feedbackid = localStorage.getItem('DailyFeedbackID');
+      return this.db.collection('Patients').doc(userdata.uid).collection('DailyFeedback').doc(feedbackid).update({
+        Dizziness: parseInt(diznum),
+        TimeStamp: new Date()
+    } )
+    .then((result) => {
+      this.router.navigate(['dashboard']);}).catch((error) => {
+      window.alert(error.message)
+    })
+
   }
+   
 
       // exercises.ref.get()
       // .then((result) => { 
@@ -106,19 +91,7 @@ export class ServiceService {
       
       }
 
-    insertDizzinessScale(diznum){
-      let userdata = JSON.parse(localStorage.getItem('user'));
-      let feedbackid = localStorage.getItem('DailyFeedbackID');
-      return this.db.collection('Patients').doc(userdata.uid).collection('DailyFeedback').doc(feedbackid).update({
-        Dizziness: parseInt(diznum),
-        TimeStamp: firebase.database.ServerValue.TIMESTAMP
-    } )
-    .then((result) => {
-      this.router.navigate(['dashboard']);}).catch((error) => {
-      window.alert(error.message)
-    })
 
-  }
 
 
 }
