@@ -15,6 +15,7 @@ import { VerifyEmailComponent } from '../../components/verify-email/verify-email
 // Import canActivate guard services
 import { AuthGuard } from "../../shared/guard/auth.guard";
 import { SecureInnerPagesGuard } from "../../shared/guard/secure-inner-pages.guard";
+import { PatientOverviewComponent } from 'src/app/components/patient-overview/patient-overview.component';
 
 // Include route guard in routes array
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
   { path: 'mood-screen', component: MoodScreenComponent, canActivate: [AuthGuard] },
   { path: 'dizziness-screen', component: DizzinessScreenComponent, canActivate: [AuthGuard] },
   { path: 'exercises', component: ExercisesComponent, canActivate: [AuthGuard] },
-
+  { path: 'patient-overview', component: PatientOverviewComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
 ];

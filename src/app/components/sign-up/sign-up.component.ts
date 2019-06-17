@@ -19,6 +19,8 @@ export class SignUpComponent implements OnInit {
     
   this.getData();
   }
+
+  
   getData(){
     this.authService.getDoctors()
     .subscribe(result => {

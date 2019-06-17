@@ -27,6 +27,7 @@ import { MoodScreenComponent } from './components/mood-screen/mood-screen.compon
 import { DizzinessScreenComponent } from './components/dizziness-screen/dizziness-screen.component';
 import { ExercisesComponent } from './components/exercises/exercises.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { PatientOverviewComponent } from './components/patient-overview/patient-overview.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     VerifyEmailComponent,
     MoodScreenComponent,
     DizzinessScreenComponent,
-    ExercisesComponent
+    ExercisesComponent,
+    PatientOverviewComponent
   ],
   imports: [
     BrowserModule,
