@@ -8,9 +8,11 @@ import { DashboardComponent } from '../../components/dashboard/dashboard.compone
 import { MoodScreenComponent } from '../../components/mood-screen/mood-screen.component';
 import { DizzinessScreenComponent } from '../../components/dizziness-screen/dizziness-screen.component';
 import { ExercisesComponent } from '../../components/exercises/exercises.component';
-
+import { SettingsComponent } from '../../components/settings/settings.component';
 import { ForgotPasswordComponent } from '../../components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from '../../components/verify-email/verify-email.component';
+import { FeedbackComponent } from '../../components/feedback/feedback.component';
+import { FeedbackExercisesComponent } from '../../components/feedback-exercises/feedback-exercises.component';
 
 // Import canActivate guard services
 import { AuthGuard } from "../../shared/guard/auth.guard";
@@ -27,8 +29,12 @@ const routes: Routes = [
   { path: 'dizziness-screen', component: DizzinessScreenComponent, canActivate: [AuthGuard] },
   { path: 'exercises', component: ExercisesComponent, canActivate: [AuthGuard] },
   { path: 'patient-overview', component: PatientOverviewComponent, canActivate: [AuthGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: 'feedback', component: FeedbackComponent, canActivate: [AuthGuard] },
+  { path: 'feedback-exercises', component: FeedbackExercisesComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
+
 ];
 
 @NgModule({

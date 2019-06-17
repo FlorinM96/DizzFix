@@ -28,6 +28,10 @@ import { DizzinessScreenComponent } from './components/dizziness-screen/dizzines
 import { ExercisesComponent } from './components/exercises/exercises.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { PatientOverviewComponent } from './components/patient-overview/patient-overview.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
+import { FeedbackExercisesComponent } from './components/feedback-exercises/feedback-exercises.component';
+
 
 
 @NgModule({
@@ -41,7 +45,11 @@ import { PatientOverviewComponent } from './components/patient-overview/patient-
     MoodScreenComponent,
     DizzinessScreenComponent,
     ExercisesComponent,
-    PatientOverviewComponent
+    PatientOverviewComponent,
+    SettingsComponent,
+    FeedbackComponent,
+    FeedbackExercisesComponent,
+
   ],
   imports: [
     BrowserModule,

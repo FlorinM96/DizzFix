@@ -1,78 +1,123 @@
 <div class="sign-in-header sign-in-log">
-    <img class="logo-sign-in logo-sign-in-log" routerLink="/mood-screen" style="cursor:pointer;" src="../../../assets/logo.png" alt="">
-  </div>
-  <div class="centered-el"><div class="divider"></div></div>
-  <div *ngFor="let info of info" style="background-color: white; margin-bottom: -10px;" class="centered-el">
-            <h4>Hello, {{info.FirstName}}.</h4>
-</div> 
-
-  <!-- Navigation -->
-
-
-  <div class="container-fluid">
-            
-  <nav class="col-xl-12 fixed-bottom d-md-block centered-el">
-         
-         
-      <ul class="nav">
-                
-            <li class="nav-item">
-                    <a class="nav-link active">
-                          <i class="fas fa-running" routerLink="/exercises"></i>
-                    </a>
-              </li>
-              <li class="nav-item">
-                    <a class="nav-link active">
-                          <i class="fas fa-chart-line" routerLink="/charts"></i>
-                    </a>
-              </li>
-              <li class="nav-item">
-                    <a class="nav-link active">
-                          <i class="fas fa-user" routerLink="/dashboard"></i>
-                    </a>
-              </li>
-              
-              <li class="nav-item">
-                    <a class="nav-link active">
-                          <i class="fas fa-cog" routerLink="/settings"></i>
-                    </a>
-              </li>
-      </ul>
-  </nav>
-
-      <div class="round-svg-m">
-      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1537 265.5"><defs><style>.cls-1{fill:#fff;stroke:#fff;stroke-miterlimit:10;}</style></defs><title>round</title><path class="cls-1" d="M1536.5,3.5c0,146.36-343.85,265-768,265S.5,149.86.5,3.5" transform="translate(0 -3.5)"/></svg>
-      </div>
-      
-      <div class="round-svg-d">
-      <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536.76 40.5"><defs><style>.cls-1{fill:#fff;stroke:#fff;stroke-miterlimit:10;}</style></defs><title>Untitled-4</title><path class="cls-1" d="M1536.5.5C1349,25.13,1059.76,40,757,40,457,40,187.15,24.79-.13.55" transform="translate(0.2 0)"/></svg>
-      </div>
-  
-         
-      <div class="centered-el first-message">
-            <h5>How do you feel today?</h5>
-      </div>
-
-      <div class="centered-el mood-bar">
-      <a class="icons" (click)="service.insertMoodScale(1)">
-      <i class='far fa-sad-tear' style='color:rgb(0, 0, 0)'></i>
-      </a>
-
-      <a class="icons" (click)="service.insertMoodScale('2')">
-          <i class='far fa-meh' style='color:darkblue'></i>
-      </a>
-
-      <a class="icons" (click)="service.insertMoodScale('3')">
-          <i class='far fa-smile' style='color:cornflowerblue'></i>
-      </a>
-
-      <a class="icons" (click)="service.insertMoodScale('4')">
-          <i class='far fa-smile-beam' style='color:white'></i>
-      </a>
+  <img
+    class="logo-sign-in logo-sign-in-log"
+    routerLink="/mood-screen"
+    style="cursor:pointer;"
+    src="../../../assets/logo.png"
+    alt=""
+  />
+</div>
+<div class="centered-el"><div class="divider"></div></div>
+<div
+  *ngFor="let info of info"
+  style="background-color: white; margin-bottom: -10px;"
+  class="centered-el"
+>
+  <h4>Hello, {{ info.FirstName }}.</h4>
 </div>
 
-      <div class="centered-el second-message">
-            <h5 style="text-align: center;">Let us know how <br>do you feel.</h5>
-      </div>
+<!-- Navigation -->
 
+<div class="container-fluid">
+  <nav class="col-xl-12 fixed-bottom d-md-block centered-el">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active">
+          <i class="fas fa-running" routerLink="/exercises"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active">
+          <i class="fas fa-chart-line" routerLink="/patient-overview"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active">
+          <i class="fas fa-user" routerLink="/dashboard"></i>
+        </a>
+      </li>
 
+      <li class="nav-item">
+        <a class="nav-link active">
+          <i class="fas fa-cog" routerLink="/settings"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="round-svg-m">
+    <svg
+      id="Layer_1"
+      data-name="Layer 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1537 265.5"
+    >
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #fff;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+          }
+        </style>
+      </defs>
+      <title>round</title>
+      <path
+        class="cls-1"
+        d="M1536.5,3.5c0,146.36-343.85,265-768,265S.5,149.86.5,3.5"
+        transform="translate(0 -3.5)"
+      />
+    </svg>
+  </div>
+
+  <div class="round-svg-d">
+    <svg
+      id="Layer_1"
+      data-name="Layer 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1536.76 40.5"
+    >
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #fff;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+          }
+        </style>
+      </defs>
+      <title>Untitled-4</title>
+      <path
+        class="cls-1"
+        d="M1536.5.5C1349,25.13,1059.76,40,757,40,457,40,187.15,24.79-.13.55"
+        transform="translate(0.2 0)"
+      />
+    </svg>
+  </div>
+
+  <div class="centered-el first-message">
+    <h5>How do you feel today?</h5>
+  </div>
+
+  <div class="centered-el mood-bar">
+    <a class="icons" (click)="service.insertMoodScale(1)">
+      <i class="far fa-sad-tear" style="color:rgb(0, 0, 0)"></i>
+    </a>
+
+    <a class="icons" (click)="service.insertMoodScale('2')">
+      <i class="far fa-meh" style="color:darkblue"></i>
+    </a>
+
+    <a class="icons" (click)="service.insertMoodScale('3')">
+      <i class="far fa-smile" style="color:cornflowerblue"></i>
+    </a>
+
+    <a class="icons" (click)="service.insertMoodScale('4')">
+      <i class="far fa-smile-beam" style="color:white"></i>
+    </a>
+  </div>
+
+  <div class="centered-el second-message">
+    <h5 style="text-align: center;">Let us know how <br />do you feel.</h5>
+  </div>
+</div>

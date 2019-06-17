@@ -725,6 +725,14 @@ border-radius: 25px;
 .container-expanded {
   height: 850px;
 }
+.chart-containter{
+  margin-top: 25px;
+}
+
+.divider-m {
+  margin-top: 25px !important;
+}
+
 /* Responsive */
 
 @media(max-width:1281px) {

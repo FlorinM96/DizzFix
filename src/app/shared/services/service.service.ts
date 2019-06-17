@@ -55,7 +55,7 @@ export class ServiceService {
         TimeStamp: date
     } )
     .then((result) => {
-      this.router.navigate(['dashboard']);}).catch((error) => {
+      this.router.navigate(['feedback']);}).catch((error) => {
       window.alert(error.message)
     })
 

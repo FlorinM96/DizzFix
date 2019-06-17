@@ -9,15 +9,16 @@
 </div>
 <div class="centered-el"><div class="divider"></div></div>
 <div
-  *ngFor="let info of info"
   style="background-color: white; margin-bottom: -10px;"
   class="centered-el"
 >
-  <h4>Hello, {{ info.FirstName }}.</h4>
+  <h4 style="text-align:center;">Thanks<br>
+    for submitting<br>
+    your feedback</h4>
 </div>
 <!-- Navigation -->
 
-<div class="container-fluid">
+<div class="container-fluid container-expanded">
   <nav class="col-xl-12 fixed-bottom d-md-block centered-el">
     <ul class="nav">
       <li class="nav-item">
@@ -92,51 +93,22 @@
       />
     </svg>
   </div>
+  
+
+  <div class="centered-el">
+    <i class="far fa-smile" style="color:cornflowerblue; font-size: 120px; width: 120px; margin-top: 25px;"></i>
+  </div>
 
   <div class="centered-el first-message mood-message">
     <h5 style="text-align: center;">
-      Feeling dizzy? <br />
-      Let us know how bad it is.
+      See you tomorrow.<br>
+      Remember to take care of yourself.
+      
     </h5>
   </div>
-  <div class="centered-el"><div class="line-dizzy"></div></div>
 
-  <div class="centered-el dizzy-bar">
-    <a class="icon" (click)="service.insertDizzinessScale(1)">
-      <i class="fas fa-circle" style="font-size:28px;color:#5a5950"></i>
-    </a>
 
-    <a class="icon" (click)="service.insertDizzinessScale(2)">
-      <i class="fas fa-circle" style="font-size:28px;color:#5a5950"></i>
-    </a>
+  
 
-    <a class="icon" (click)="service.insertDizzinessScale(3)">
-      <i class="fas fa-circle" style="font-size:28px;color:#5a5950"></i>
-    </a>
-
-    <a class="icon" (click)="service.insertDizzinessScale(4)">
-      <i class="fas fa-circle" style="font-size:28px;color:#5a5950"></i>
-    </a>
-  </div>
-
-  <div class="row centered-el">
-    <img
-      class="thumb-dwn"
-      style="width: 40px; float:left; height: 40px;"
-      src="../../../assets/thumb-down.png"
-      alt=""
-    />
-    <img
-      style="width: 40px; float: right; height: 40px;"
-      src="../../../assets/like.png"
-      alt=""
-    />
-  </div>
-
-  <div class="centered-el second-message mood-message">
-    <h5 style="text-align: center;">
-      Let us know how<br />
-      do you feel.
-    </h5>
-  </div>
 </div>
+

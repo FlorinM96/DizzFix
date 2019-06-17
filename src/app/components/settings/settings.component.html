@@ -5,7 +5,8 @@
 
 <!-- Navigation -->
 
-<div class="container-fluid container-expanded">
+<div class="container-fluid">
+
 
   <nav class="col-xl-12 fixed-bottom d-md-block centered-el">
     <ul class="nav">
@@ -34,39 +35,21 @@
   </nav>
 
   <!-- Main content -->
-  <main role="main" class="col-md-12 ml-sm-auto col-lg-12">
+  <div role="main" class="col-md-12 ml-sm-auto col-lg-12">
     <div class="inner-adjust">
       <!-- Show user data when logged in -->
       <div class="row">
         <div class="displayTable">
           <div class="displayTableCell">
-            <div *ngFor="let info of info">
-              <div class="centered-el">
-                <img src="../../../assets/dummy-user.png" style="border-radius: 50%; width: 25%; margin-bottom: 25px;"
-                  alt="">
-              </div>
-              <div class="formGroup centered-el">
-                <input type="name" class="formControl formControl-u" value="{{info.FirstName}}" #userFname required>
-              </div>
-              <div class="formGroup centered-el">
-                <input type="name" class="formControl formControl-u" value="{{info.LastName}}" #userLname required>
-              </div>
-              <div class="formGroup centered-el">
-                <input type="button" class="btn btnPrimary formControl-u btn-u" value="Update Info"
-                  (click)="service.EditUserInfo(userFname.value, userLname.value)">
-              </div>
+            <div class="formGroup centered-el">
               <div class="formGroup centered-el">
                 <input type="button" class="btn btnPrimary formControl-u btn-u" (click)="authService.SignOut()"
-                  routerLink="/forgot-password" value="Change password">
+                  value="Log out">
               </div>
-            </div>
-            <h5 style="margin-left: 13%;">Disease info:</h5>
-            <div *ngFor="let info of info" class="centered-el">
-              <div class="info-box"><span>{{info.DiseaseInfo}}</span></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </main>
-</div>
+  </div>
+
