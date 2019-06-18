@@ -78,11 +78,16 @@
                               transform="translate(0.2 0)" />
                   </svg>
             </div>
-            <div class="centered-el">
-                  <div *ngFor="let feed of exercises">
-                        {{feed.Name}}
-                        {{feed.Description}}
-                  <img [src]="feed.Path" alt="">
+            <div *ngFor="let feed of exercises">
+                  <div class="centered-el" >
+                      <img style="width: 35%; margin-top: 25px;" [src]="feed.Path" alt="">
                   </div>
+                  <div class="centered-el">
+                      <h5 style="text-align:center; margin-top: 25px; padding-left: 25px; padding-right: 25px;" >{{feed.Name}}<br>
+                        {{feed.Description}}</h5>  
+                  </div>
+                     
+                  
+                  
             </div>
             
