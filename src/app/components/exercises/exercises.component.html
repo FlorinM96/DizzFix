@@ -81,6 +81,8 @@
             <div class="centered-el">
                   <div *ngFor="let feed of exercises">
                         {{feed.Name}}
+                        {{feed.Description}}
+                  <img [src]="feed.Path" alt="">
                   </div>
             </div>
             

@@ -35,7 +35,7 @@ exercises:any;
         const ExID = data.ExerciseID;
           return this.db.doc('Exercises/' +ExID).valueChanges().pipe(map( (ExercisesData: Exercises) => {
             return Object.assign(
-              {Name: ExercisesData.Name, Description: ExercisesData.Description}); }
+              {Name: ExercisesData.Name, Description: ExercisesData.Description, Path: ExercisesData.Path}); }
           ));
       });
     }), flatMap(feeds => combineLatest(feeds)));
