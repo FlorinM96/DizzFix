@@ -36,14 +36,11 @@ export class AuthService {
   SignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SetUserData(result.user);
-        this.checkifmoodisdone();
-      }).catch((error) => {
-        window.alert(error.message)
+        this.SetUserData(result.user);    
+        this.checkifmoodisdone(result.user);
       })
   }
-  checkifmoodisdone(){
-    let userdata = JSON.parse(localStorage.getItem('user'));
+  checkifmoodisdone(userdata){
     let DateObj = new Date();
     let date = ('0' + DateObj.getDate()).slice(-2) + '-' + ('0' + (DateObj.getMonth() + 1)).slice(-2) + '-' + DateObj.getFullYear() 
     let MoodREF = this.afs.collection('Patients').doc(userdata.uid).collection('DailyFeedback').doc(date);
