@@ -19,16 +19,20 @@ export class ServiceService {
    ) {}
 
 
-    EditUserInfo(Fname, Lname){
+  EditUserInfo(Fname, Lname){
   let userdata = JSON.parse(localStorage.getItem('user'))
-
   return this.db.collection('Patients').doc(userdata.uid).update({
   FirstName: Fname,
   LastName:Lname
-})
+  }).then(docRef => {
+  window.location.reload();
+});
+  }
+
+    getUserInfo(){
+      let userdata = JSON.parse(localStorage.getItem('user'))
+      return this.db.collection('Patients').doc(userdata.uid).valueChanges()
     }
-
-
     insertMoodScale(moodnum)
     {
       let userdata = JSON.parse(localStorage.getItem('user'))

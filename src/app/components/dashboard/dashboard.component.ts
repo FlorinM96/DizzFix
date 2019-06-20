@@ -12,7 +12,7 @@ import { ServiceService } from 'src/app/shared/services/service.service';
 })
 export class DashboardComponent implements OnInit {
 
-  public info: any = [];
+  info: any = [];
 
   constructor(
     public service: ServiceService,
@@ -24,9 +24,8 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
-    let userdata = JSON.parse(localStorage.getItem('user'));
-    this.db.collection('Patients').doc(userdata.uid).valueChanges().subscribe(data =>{
+    this.service.getUserInfo()
+    .subscribe(data =>{
       this.info.push(data);
       console.log(this.info)});
    }
