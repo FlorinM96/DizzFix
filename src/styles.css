@@ -25,6 +25,20 @@ body {
   vertical-align: text-bottom;
 }
 
+nav {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+
+align-items: center;
+
+justify-content: center;
+}
+
 h1,
 h2,
 h3,
@@ -718,9 +732,13 @@ padding-bottom: 25px;
 }
 
 .info-box {
-  padding: 70px;
-background-color: white;
-border-radius: 25px;
+  padding: 30px;
+
+  background-color: white;
+  
+  border-radius: 25px;
+  
+  width: 75%;
 }
 .container-expanded {
   height: 850px;
